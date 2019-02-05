@@ -3,7 +3,7 @@
 ## Que vas tu apprendre ? 
 
 - Redux, c'est quoi ? 
-- Comment l'utiliser avec react ? 
+- Comment l'utiliser avec React ? 
 
 > Chapitre 1 : * Rappel Qu'est ce qu'un state en React ?
 
