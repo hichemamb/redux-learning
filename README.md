@@ -58,8 +58,8 @@ class Learning extends Component {
        return (
            <React.Fragment>
              <h1>Salut, bienvenue à {this.state.schoolName}</h1>
-             <button onClick={this.changeSchoolName()}>Changer le nom</button>  
-       </React.Fragment>
+             <button onClick={this.changeSchoolName}>Changer le nom</button>  
+           </React.Fragment>
        );
      }
    }
@@ -67,6 +67,8 @@ class Learning extends Component {
    export default Learning;
 
 ```
+
+![Trivia](https://i.gyazo.com/e6e72900345a4caafc4e766fdfff712a.gif?_ga=2.167367998.1217613337.1549360202-648851519.1549134019)
 
 Pour en savoir plus sur React et le state : https://reactjs.org/docs/state-and-lifecycle.html
 > Chapitre 2 : Quels problèmes résoud Redux ?
