@@ -37,6 +37,37 @@ schoolName que l'on rappelle dans le render via this.state pour accéder à l'ob
 
 Aussi, le state peut être modifier grâce à la méthode setState.
 
+Par exemple, au clique on va modifier notre schoolName par "Harvard"
+
+```javascript
+import React, {Component} from 'react';
+
+class Learning extends Component {
+    
+    state = {
+        schoolName: "Hetic"
+    };
+    
+    changeSchoolName = () => {
+       this.setState({
+            schoolName: "Harvard"
+       }) 
+    };
+    
+     render() {
+       return (
+           <React.Fragment>
+             <h1>Salut, bienvenue à {this.state.schoolName}</h1>
+             <button onClick={this.changeSchoolName()}>Changer le nom</button>  
+       </React.Fragment>
+       );
+     }
+   }
+   
+   export default Learning;
+
+```
+
 Pour en savoir plus sur React et le state : https://reactjs.org/docs/state-and-lifecycle.html
 > Chapitre 2 : Quels problèmes résoud Redux ?
 
