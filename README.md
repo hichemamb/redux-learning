@@ -1,7 +1,5 @@
 # redux-learning
 
-## Que vas tu apprendre ? 
-
 - Redux, c'est quoi ? 
 - Comment l'utiliser avec React ? 
 
