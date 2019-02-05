@@ -1,7 +1,9 @@
 # redux-learning
 
-## C'est quoi? 
-Un petit learning pour comprendre redux avec une petite application !
+## Que vas tu apprendre ? 
+
+- Redux, c'est quoi ? 
+- Comment l'utiliser avec react ? 
 
 > Chapitre 1 : * Rappel Qu'est ce qu'un state en React ?
 
