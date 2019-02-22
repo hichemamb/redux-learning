@@ -1,9 +1,9 @@
-# redux-learning
+# React / Redux - Guide d'apprentissage
 
 - Redux, c'est quoi ? 
 - Comment l'utiliser avec React ? 
 
-> Chapitre 1 : * Rappel :  Qu'est ce qu'un state en React ?
+> Chapitre 1 : * Rappel: Qu'est ce qu'un state en React ?
 
 Avant de se lancer dans l'apprentissage de Redux, il faut deja bien comprendre ce qu'est le state 
 en React. 
@@ -187,7 +187,7 @@ export default rootReducer;
   En redux, l'état est immuable ! On ne peut pas directement changer l'état comme on ferait avec un setState. Autrement dit, on ne peut pas modifier l'objet original ! 
   
   L'astuce que nous utilisons dans l'exemple :
-    - c'est de faire une copie de l'objet initial, nous retournons donc un nouvel objet ( on peut utiliser les spread operator mais aussi Object.assign)
+    - c'est de faire une copie de l'objet initial, nous retournons donc un nouvel objet (on peut utiliser les spread operator mais aussi Object.assign)
     
     
   ## Les actions 
@@ -231,12 +231,13 @@ export const HANDLE_CHANGE = "HANDLE_CHANGE";
 Chaque action est un objet, par exemple, l'action SHOW_MODAL, dispose d'une donnée bool à true. Notre store dispose d'une state modal à false. Notre reducer va utiliser cette action pour passer le state à true lorsque celle ci sera dispatch.
 
 
-## Les actions 
+## Les méthodes du store 
 
-  Il existe des méthodes redux qui nous permettre de gérer l'état:
-    - getState() => accéder à l'état actuel du store
-    - dispatch() => envoyer une action
-    - subscribe() => écouter les changements d'état
+  Il existe des méthodes redux qui nous permettre de gérer l'état :
+  
+   - getState() => accéder à l'état actuel du store
+   - dispatch() => envoyer une action
+   - subscribe() => écouter les changements d'état
     
     
 ### Exemple :
@@ -252,3 +253,64 @@ Chaque action est un objet, par exemple, l'action SHOW_MODAL, dispose d'une donn
    
    
 > Chapitre 4 : Connection React-Redux et Application
+
+Maintenant, la question qui se pose ? Comment utiliser Redux avec React ? 
+
+Il existe une librairie (react-redux) qui permet de connecter React et Redux !
+
+```bash
+npm install react-redux --save-dev
+```
+
+La première étape pour connecter React et Redux, c'est d'utiliser Provider. Il va encapsuler l'application et lui fournir le store Redux.
+
+### Exemple :
+
+ ```javascript
+ReactDOM.render(<Provider store={store}><App/></Provider>, document.getElementById('root'));
+```
+ 
+Mais ce n'est pas tout 😅 La question qu'on se pose, c'est comment accéder au state redux et aux actions ? 
+
+Et bien pour se faire, la méthode connect de react-redux va rendre ça possible. Le but va être de crée un higher-order component pour faire un container component sur la base d'un composant.
+Maintenant que l'on fourni avec Provider le store, on va connecter nos composants au store. Et c'est la que la méthode connect() intervient.
+En effet, elle va prendre en paramètre deux fonctions (mapStateToProps et mapDispatchToProps).
+
+- mapStateToProps: elle lie une partie du state de Redux au props du composant. Le composant aura donc accès à la partie du state dont il a besoin ! C'est extraordinaire Jamy !
+- mapDispatchToProps: elle lie les actions redux au props du composant.
+
+
+### Exemple :
+
+```javascript
+import React from 'react';
+import './Modal.css';
+import {connect} from 'react-redux';
+import {addElement} from '../../actions/index';
+import {handleChange} from '../../actions/index';
+import store from '../../store/index';
+
+const Modal = ({array, text, addElement, handleChange}) => {
+
+    return (
+        <div className="Modal">
+            <h1>MODAL</h1>
+            <input type="text" value={text} onChange={handleChange}/>Abs
+            <button onClick={addElement}>Ajouter l'élement au tableau</button>
+        </div>
+    );
+};
+
+const mapStateToProps = state => ({
+    array: state.array,
+    text: state.text
+});
+
+const mapDispatchToProps = dispatch => ({
+    addElement: () => dispatch(addElement(store.getState().text)),
+    handleChange: (event) => dispatch(handleChange(event.target.value))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+```
+
