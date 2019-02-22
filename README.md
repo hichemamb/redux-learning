@@ -1,5 +1,7 @@
 # React / Redux - Guide d'apprentissage
 
+![react-redux](https://cdn-images-1.medium.com/max/1600/1*cMyXhbaUYCJwjYG3nNrImw.jpeg)
+
 - Redux, c'est quoi ? 
 - Comment l'utiliser avec React ? 
 
