@@ -12,9 +12,9 @@ const Home = ({schoolName, changeSchoolName, modal, showModal}) => {
 
     return (
         <div className="Home">
-            <h1>Salut, bienvenue à {schoolName}</h1>
-            <button onClick={onChange}>Changer le nom</button>
-            <button onClick={showModal}>Ouvrir la modal</button>
+            <h1 className="Home-title">Salut, bienvenue à <span className="Home-title--crimson">{schoolName}</span></h1>
+            <button className="Home-button" onClick={onChange}>Changer le nom</button>
+            <button className="Home-button" onClick={showModal}>Ouvrir la modal</button>
             { modal &&
                 <Modal/>
             }

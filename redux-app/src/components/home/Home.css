@@ -1,0 +1,31 @@
+.Home {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.Home-title {
+    color: darkgreen;
+}
+
+.Home-title--crimson {
+    color: crimson;
+}
+
+.Home-button {
+    border: 1px solid crimson;
+    border-radius: 5px;
+    background-color: crimson;
+    color: #FFFFFF;
+    font-size: 16px;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    outline-style: none;
+}
+
+.Home-button:hover {
+    border: 1px solid darkgreen;
+    background-color: darkgreen;
+}

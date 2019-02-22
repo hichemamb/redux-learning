@@ -68,7 +68,7 @@ class Learning extends Component {
 
 ```
 
-![Trivia](https://i.gyazo.com/e6e72900345a4caafc4e766fdfff712a.gif?_ga=2.167367998.1217613337.1549360202-648851519.1549134019)
+![demo](https://i.gyazo.com/e6e72900345a4caafc4e766fdfff712a.gif?_ga=2.167367998.1217613337.1549360202-648851519.1549134019)
 
 Pour en savoir plus sur React et le state : https://reactjs.org/docs/state-and-lifecycle.html
 > Chapitre 2 : Quels problèmes résoud Redux ?
@@ -282,7 +282,7 @@ En effet, elle va prendre en paramètre deux fonctions (mapStateToProps et mapDi
 
 ### Exemple :
 
-```javascript
+   ```javascript
 import React from 'react';
 import './Modal.css';
 import {connect} from 'react-redux';
@@ -295,8 +295,8 @@ const Modal = ({array, text, addElement, handleChange}) => {
     return (
         <div className="Modal">
             <h1>MODAL</h1>
-            <input type="text" value={text} onChange={handleChange}/>Abs
-            <button onClick={addElement}>Ajouter l'élement au tableau</button>
+            <input type="text" value={text} onChange={handleChange}/>
+            <button onClick={addElement}>Ajouter l élement au tableau</button>
         </div>
     );
 };
@@ -312,5 +312,15 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);
-```
+   ```
+
+
+## Le rendu final
+ 
+![demo](https://i.gyazo.com/49ddaad492bcd296d9ba80039c84e178.gif?_ga=2.229078236.1194222316.1550747725-648851519.1549134019)
+
+## Schéma pour résumé 
+
+![demo](https://cdn-images-1.medium.com/max/1600/0*95tBOgxEPQAVq9YO.png)
+
 
