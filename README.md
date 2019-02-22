@@ -81,7 +81,7 @@ Pour en savoir plus sur React et le state : https://reactjs.org/docs/state-and-l
  Cependant, il y a Redux, qui lui va apporter LA FORCE, LE POUVOIR à React, en effet il dispose du state de toute l'application 
  et va pouvoir donner à chaque composant le bout d'état dont il a besoin ? Génial non ? 
  
- Tout l'état de la WebApplication est dans un seul et même endroit, le store ( on en parlera plus tard)
+ Tout l'état de l'app est dans un seul et même endroit, le store ( on en parlera plus tard)
   
   Il permettra :
    - de rendre le projet plus performant,
@@ -89,7 +89,7 @@ Pour en savoir plus sur React et le state : https://reactjs.org/docs/state-and-l
    - La fameuse particularité de REDUX est surtout sa gestion d'état dans un seul et même endroit, une gestion qui se gère en dehors de React et qui permettra à React de pouvoir gérer n'importe quel state en la rendant indépendante dans chaque composant. 
      
 
-> Chapitre 3 : Vif du sujet (Store, Reducers, Actions)
+> Chapitre 3 : Vif du sujet (Store, Reducers, Actions, Méthode du store)
 
 ## Le store
 
@@ -182,7 +182,7 @@ export default rootReducer;
   Notre reducer (rootReducer) prend en param§tre l'état initiale et un action. 
   Avec les intructions switch case, on va évaluer chaque action et modifier le bout d'état associé à l'action pour finalement retourner le nouvel état ! ( on pourrait aussi faire du if.. else)
   
-  ### Notre importante 
+  ### Note importante 
   
   En redux, l'état est immuable ! On ne peut pas directement changer l'état comme on ferait avec un setState. Autrement dit, on ne peut pas modifier l'objet original ! 
   
@@ -204,9 +204,9 @@ export default rootReducer;
   ### Exemple :
   
    ```javascript
-        export const SHOW_MODAL = "SHOW_MODAL";
-        export const ADD_ELEMENT = "ADD_ELEMENT";
-        export const HANDLE_CHANGE = "HANDLE_CHANGE";
+export const SHOW_MODAL = "SHOW_MODAL";
+export const ADD_ELEMENT = "ADD_ELEMENT";
+export const HANDLE_CHANGE = "HANDLE_CHANGE";
    ```
   
   
@@ -229,6 +229,26 @@ export default rootReducer;
   ```
 
 Chaque action est un objet, par exemple, l'action SHOW_MODAL, dispose d'une donnée bool à true. Notre store dispose d'une state modal à false. Notre reducer va utiliser cette action pour passer le state à true lorsque celle ci sera dispatch.
-  
-  
+
+
+## Les actions 
+
+  Il existe des méthodes redux qui nous permettre de gérer l'état:
+    - getState() => accéder à l'état actuel du store
+    - dispatch() => envoyer une action
+    - subscribe() => écouter les changements d'état
+    
+    
+### Exemple :
+
+   ![StoreMethods](http://image.noelshack.com/fichiers/2019/08/5/1550831365-capture-d-ecran-2019-02-22-a-11-28-57.png)
+   
+   On voit sur cette capture d'écran, les différentes méthodes utiliser dans la console.
+   
+   - On accède à l'état de notre app, on voit que modal est à false.
+   - On utilise subscribe, pour savoir quand un changement sera fait dans le store.
+   - On dispatch l'action de type "SHOW_MODAL" qui a une donnée à true.
+   - On re-accéde à l'état de l'app, on voit que notre modal est passé en true, c'est le reducer qui en récupérant l'action associé s'en est occupé.
+   
+   
 > Chapitre 4 : Connection React-Redux et Application
