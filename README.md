@@ -78,7 +78,7 @@ Pour en savoir plus sur React et le state : https://reactjs.org/docs/state-and-l
  Et bien oui beaucoup ! D'autant plus, qu'un state peut se passer en props puis props et encore en props s'il on utilise les composants fonctionnel
  qui sont stateless.
    
- Cependant, il y a Redux, qui lui va apporter LA FORCE, LE POUVOIR et LA GLOIRE à React, en effet il dispose du state de toute l'application 
+ Cependant, il y a Redux, qui lui va apporter LA FORCE, LE POUVOIR à React, en effet il dispose du state de toute l'application 
  et va pouvoir donner à chaque composant le bout d'état dont il a besoin ? Génial non ? 
  
  Tout l'état de la WebApplication est dans un seul et même endroit, le store ( on en parlera plus tard)
@@ -90,5 +90,33 @@ Pour en savoir plus sur React et le state : https://reactjs.org/docs/state-and-l
      
 
 > Chapitre 3 : Vif du sujet (Store, Reducers, Actions)
+
+### Le store
+
+  Nous en voila ! Le store ? C’est de la magie, que dis-je de l’art ! 
+  
+  C’est simple, tout l’état de l’app est dans le store.
+  
+  Maintenant la question, comment crée le store qui va contenir toute la donnée ? 
+  
+  Et bien c’est createStore(), une fonction de redux qui va permettre de le crée, il va prendre un reducer en argument. 
+  
+  Un reducer ? On va y venir ! 
+  
+  Le state de l’app est crée par les reducers ! Ils renvoient un objet state qui est le paramètre de notre createStore !
+  
+ ## Exemple :
+ 
+ Dans cette exemple, on retrouve notre createStore() qui prend en paramètre rootReducer, le reducer qui va retourner l'état de l'application.
+ 
+ ```javascript
+ import { createStore } from "redux";
+ import rootReducer from "../reducers/index";
+ 
+ const store = createStore(rootReducer);
+ 
+ export default store;
+ 
+ ```
 
 > Chapitre 4 : Connection React-Redux et Application
