@@ -10,6 +10,6 @@ export const showModal = () => {
     return {type: SHOW_MODAL, bool: true}
 };
 
-export const handleChange = (value) => {
-    return {type: HANDLE_CHANGE, value: value}
+export const handleChange = (content, value) => {
+    return {type: HANDLE_CHANGE, [content]: value, name: content}
 };

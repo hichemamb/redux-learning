@@ -7,6 +7,7 @@ import {HANDLE_CHANGE} from '../constants/action-types';
 const initialState = {
     modal: false,
     text : '',
+    text2 : '',
     array: []
 };
 
@@ -21,10 +22,18 @@ const rootReducer = (state = initialState, action) => {
         }
 
         case HANDLE_CHANGE: {
-            return {
-                ...state,
-                text: action.value
-            };
+            if (action.name === 'text') {
+                return {
+                    ...state,
+                    text: action.text
+                };
+            } else if (action.name === 'text2') {
+                return {
+                    ...state,
+                    text2: action.text2
+                };
+            }
+            break;
         }
 
         case ADD_ELEMENT: {
