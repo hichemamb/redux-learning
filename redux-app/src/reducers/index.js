@@ -1,36 +1,33 @@
-import {SHOW_MODAL} from '../constants/action-types';
-import {ADD_ELEMENT} from '../constants/action-types';
-import {HANDLE_CHANGE} from '../constants/action-types';
-
-
+import { SHOW_MODAL } from '../constants/action-types';
+import { ADD_ELEMENT } from '../constants/action-types';
+import { HANDLE_CHANGE } from '../constants/action-types';
 
 const initialState = {
     modal: false,
-    text : '',
-    text2 : '',
-    array: []
+    text: '',
+    text2: '',
+    array: [],
 };
 
 const rootReducer = (state = initialState, action) => {
-
     switch (action.type) {
         case SHOW_MODAL: {
             return {
                 ...state,
                 modal: action.bool,
-            }
+            };
         }
 
         case HANDLE_CHANGE: {
             if (action.name === 'text') {
                 return {
                     ...state,
-                    text: action.text
+                    text: action.text,
                 };
             } else if (action.name === 'text2') {
                 return {
                     ...state,
-                    text2: action.text2
+                    text2: action.text2,
                 };
             }
             break;
@@ -47,6 +44,5 @@ const rootReducer = (state = initialState, action) => {
 
     return state;
 };
-
 
 export default rootReducer;
