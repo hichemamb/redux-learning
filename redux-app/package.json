@@ -10,15 +10,18 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "prettier": "prettier --write src/**/*.js src/components/**/*.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run prettier"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "src/**/*.js": ["prettier --write", "git add"],
+    "src/components/**/*.js": ["prettier --write", "git add"]
   },
   "eslintConfig": {
     "extends": "react-app"
